@@ -25,10 +25,11 @@ function spinnerLoadingEnd() {
  */
 async function getQuote() {
   spinnerLoadingStart();
+  const proxyUlr = "https://cors-anywhere.herokuapp.com/"
   const apiUrl =
     "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json";
   try {
-    const response = await fetch(apiUrl);
+    const response = await fetch(proxyUlr + apiUrl);
     const data = await response.json();
 
     if (data.quoteAuthor === "") {
